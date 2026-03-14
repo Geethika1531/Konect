@@ -86,6 +86,7 @@ interface AppState {
   ) => void;
   resetOnboarding: () => void;
   completeOnboarding: () => void;
+  setHasCompletedOnboarding: (value: boolean) => void;
   
   // Actions - Progress
   incrementMeetupCount: () => void;
@@ -166,6 +167,7 @@ export const useAppStore = create<AppState>()(
           currentView: 'map',
           onboardingStep: 'complete',
         }),
+      setHasCompletedOnboarding: (value) => set({ hasCompletedOnboarding: value }),
       
       // Progress actions
       incrementMeetupCount: () =>
