@@ -1,0 +1,1754 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/* Konect Premium Design System - Neutral + LGBTQ+ Dual Theme */
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-satoshi);
+  --font-display: var(--font-satoshi);
+  --font-mono: var(--font-geist-mono);
+  
+  /* Sidebar */
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  
+  /* Charts */
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  
+  /* Core colors */
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  
+  /* Konect brand colors */
+  --color-terracotta: var(--terracotta);
+  --color-warm-gold: var(--warm-gold);
+  --color-soft-sage: var(--soft-sage);
+  --color-deep-charcoal: var(--deep-charcoal);
+  --color-cream: var(--cream);
+  
+  /* Rainbow pride colors */
+  --color-rainbow-red: var(--rainbow-red);
+  --color-rainbow-orange: var(--rainbow-orange);
+  --color-rainbow-yellow: var(--rainbow-yellow);
+  --color-rainbow-green: var(--rainbow-green);
+  --color-rainbow-blue: var(--rainbow-blue);
+  --color-rainbow-purple: var(--rainbow-purple);
+  
+  /* LGBTQ+ Pride colors */
+  --color-pride-red: var(--pride-red);
+  --color-pride-orange: var(--pride-orange);
+  --color-pride-yellow: var(--pride-yellow);
+  --color-pride-green: var(--pride-green);
+  --color-pride-blue: var(--pride-blue);
+  --color-pride-purple: var(--pride-purple);
+  --color-trans-blue: var(--trans-blue);
+  --color-trans-pink: var(--trans-pink);
+  --color-trans-white: var(--trans-white);
+  --color-bi-pink: var(--bi-pink);
+  --color-bi-purple: var(--bi-purple);
+  --color-bi-blue: var(--bi-blue);
+  --color-pan-pink: var(--pan-pink);
+  --color-pan-yellow: var(--pan-yellow);
+  --color-pan-cyan: var(--pan-cyan);
+  --color-nonbinary-yellow: var(--nonbinary-yellow);
+  --color-nonbinary-purple: var(--nonbinary-purple);
+  --color-nonbinary-black: var(--nonbinary-black);
+  --color-lesbian-orange1: var(--lesbian-orange1);
+  --color-lesbian-orange2: var(--lesbian-orange2);
+  --color-lesbian-pink: var(--lesbian-pink);
+  
+  /* Radius */
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+}
+
+:root {
+  --radius: 0.75rem;
+  
+  /* Neutral Theme - Warm & Earthy (Default) */
+  --background: #faf8f5;
+  --foreground: #1a1816;
+  --card: #ffffff;
+  --card-foreground: #1a1816;
+  --popover: #ffffff;
+  --popover-foreground: #1a1816;
+  
+  /* Primary - Warm Terracotta */
+  --primary: #c45d3e;
+  --primary-foreground: #ffffff;
+  
+  /* Secondary - Soft Charcoal */
+  --secondary: #e8e4df;
+  --secondary-foreground: #3d3835;
+  
+  /* Muted - Warm Gray */
+  --muted: #f5f2ef;
+  --muted-foreground: #6b6560;
+  
+  /* Accent - Warm Gold */
+  --accent: #d4a853;
+  --accent-foreground: #1a1816;
+  
+  --destructive: #c4413e;
+  --border: #e8e4df;
+  --input: #f5f2ef;
+  --ring: #c45d3e;
+  
+  /* Charts */
+  --chart-1: #c45d3e;
+  --chart-2: #d4a853;
+  --chart-3: #7a9e7e;
+  --chart-4: #6b8cae;
+  --chart-5: #a67c5b;
+  
+  /* Sidebar */
+  --sidebar: #faf8f5;
+  --sidebar-foreground: #1a1816;
+  --sidebar-primary: #c45d3e;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #e8e4df;
+  --sidebar-accent-foreground: #3d3835;
+  --sidebar-border: #e8e4df;
+  --sidebar-ring: #c45d3e;
+  
+  /* Konect brand colors - Neutral Theme */
+  --terracotta: #c45d3e;
+  --warm-gold: #d4a853;
+  --soft-sage: #7a9e7e;
+  --deep-charcoal: #2d2926;
+  --cream: #faf8f5;
+  
+  /* Rainbow pride colors */
+  --rainbow-red: #e53935;
+  --rainbow-orange: #ff9800;
+  --rainbow-yellow: #fdd835;
+  --rainbow-green: #43a047;
+  --rainbow-blue: #1e88e5;
+  --rainbow-purple: #8e24aa;
+  
+  /* LGBTQ+ Pride Flag Colors */
+  --pride-red: #e53935;
+  --pride-orange: #ff9800;
+  --pride-yellow: #fdd835;
+  --pride-green: #43a047;
+  --pride-blue: #1e88e5;
+  --pride-purple: #8e24aa;
+  
+  /* Trans Flag Colors */
+  --trans-blue: #5bcefa;
+  --trans-pink: #f5a9b8;
+  --trans-white: #ffffff;
+  
+  /* Bisexual Flag Colors */
+  --bi-pink: #d60270;
+  --bi-purple: #9b4f96;
+  --bi-blue: #0038a8;
+  
+  /* Pansexual Flag Colors */
+  --pan-pink: #ff218c;
+  --pan-yellow: #ffd800;
+  --pan-cyan: #21b1ff;
+  
+  /* Non-binary Flag Colors */
+  --nonbinary-yellow: #fcf434;
+  --nonbinary-purple: #2c2c2c;
+  --nonbinary-black: #000000;
+  
+  /* Lesbian Flag Colors */
+  --lesbian-orange1: #d52d00;
+  --lesbian-orange2: #ef7627;
+  --lesbian-pink: #f5a9b8;
+}
+
+/* Dark Mode - Neutral Theme */
+.dark {
+  --background: #1a1816;
+  --foreground: #faf8f5;
+  --card: #252220;
+  --card-foreground: #faf8f5;
+  --popover: #1f1d1b;
+  --popover-foreground: #faf8f5;
+  
+  --primary: #d4715a;
+  --primary-foreground: #1a1816;
+  
+  --secondary: #2d2926;
+  --secondary-foreground: #e8e4df;
+  
+  --muted: #252220;
+  --muted-foreground: #a09890;
+  
+  --accent: #e6b85c;
+  --accent-foreground: #1a1816;
+  
+  --destructive: #e55451;
+  --border: #3d3835;
+  --input: #252220;
+  --ring: #d4715a;
+  
+  --chart-1: #d4715a;
+  --chart-2: #e6b85c;
+  --chart-3: #8ab88e;
+  --chart-4: #7a9cc4;
+  --chart-5: #b68e6b;
+  
+  --sidebar: #1a1816;
+  --sidebar-foreground: #faf8f5;
+  --sidebar-primary: #d4715a;
+  --sidebar-primary-foreground: #1a1816;
+  --sidebar-accent: #2d2926;
+  --sidebar-accent-foreground: #e8e4df;
+  --sidebar-border: #3d3835;
+  --sidebar-ring: #d4715a;
+}
+
+/* LGBTQ+ Theme Override - Vibrant & Inclusive */
+[data-theme="lgbtq"] {
+  --primary: var(--pride-purple);
+  --ring: var(--pride-purple);
+  --background: #fffafa; /* Soft blush tint */
+  --card: #ffffff;
+  --border: rgba(142, 36, 170, 0.15); /* Pride purple border tint */
+  --secondary: rgba(142, 36, 170, 0.05);
+  --muted: rgba(142, 36, 170, 0.03);
+  --accent: var(--pride-orange);
+}
+
+[data-theme="lgbtq"].dark {
+  --primary: var(--pride-purple);
+  --ring: var(--pride-purple);
+  --background: #120a1a; /* Very deep purple-black */
+  --card: #1c1126;
+  --border: rgba(142, 36, 170, 0.25);
+  --secondary: rgba(142, 36, 170, 0.12);
+  --muted: rgba(142, 36, 170, 0.08);
+  --accent: var(--pride-orange);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings: "rlig" 1, "calt" 1;
+    line-height: 1.65;
+    letter-spacing: -0.01em;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  /* Premium heading styles */
+  h1, h2, h3, h4, h5, h6 {
+    font-weight: 600;
+    letter-spacing: -0.03em;
+    line-height: 1.15;
+  }
+  
+  h1 { letter-spacing: -0.04em; }
+  h2 { letter-spacing: -0.035em; }
+}
+
+/* Konect Premium Utilities */
+@layer utilities {
+  /* Terracotta gradient */
+  .gradient-terracotta {
+    background: linear-gradient(135deg, var(--terracotta) 0%, #a84d35 100%);
+  }
+  
+  /* Warm gold gradient */
+  .gradient-gold {
+    background: linear-gradient(135deg, var(--warm-gold) 0%, #c49a48 100%);
+  }
+  
+  /* Full Rainbow Pride Gradient */
+  .gradient-rainbow {
+    background: linear-gradient(
+      90deg,
+      var(--pride-red) 0%,
+      var(--pride-orange) 17%,
+      var(--pride-yellow) 33%,
+      var(--pride-green) 50%,
+      var(--pride-blue) 67%,
+      var(--pride-purple) 83%,
+      var(--pride-red) 100%
+    );
+  }
+  
+  /* Animated rainbow gradient */
+  .gradient-rainbow-animated {
+    background: linear-gradient(
+      90deg,
+      var(--pride-red) 0%,
+      var(--pride-orange) 17%,
+      var(--pride-yellow) 33%,
+      var(--pride-green) 50%,
+      var(--pride-blue) 67%,
+      var(--pride-purple) 83%,
+      var(--pride-red) 100%
+    );
+    background-size: 200% 100%;
+    animation: rainbowShift 8s linear infinite;
+  }
+  
+  @keyframes rainbowShift {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 200% 50%; }
+  }
+  
+  /* LGBTQ+ Flag Gradients */
+  .gradient-trans {
+    background: linear-gradient(
+      180deg,
+      var(--trans-blue) 0%,
+      var(--trans-pink) 25%,
+      var(--trans-white) 50%,
+      var(--trans-pink) 75%,
+      var(--trans-blue) 100%
+    );
+  }
+  
+  .gradient-bisexual {
+    background: linear-gradient(
+      180deg,
+      var(--bi-pink) 0%,
+      var(--bi-purple) 50%,
+      var(--bi-blue) 100%
+    );
+  }
+  
+  .gradient-pansexual {
+    background: linear-gradient(
+      180deg,
+      var(--pan-pink) 0%,
+      var(--pan-yellow) 50%,
+      var(--pan-cyan) 100%
+    );
+  }
+  
+  .gradient-nonbinary {
+    background: linear-gradient(
+      180deg,
+      var(--nonbinary-yellow) 0%,
+      #ffffff 25%,
+      var(--nonbinary-purple) 50%,
+      var(--nonbinary-black) 100%
+    );
+  }
+  
+  .gradient-lesbian {
+    background: linear-gradient(
+      180deg,
+      var(--lesbian-orange1) 0%,
+      var(--lesbian-orange2) 33%,
+      #ffffff 50%,
+      var(--lesbian-pink) 67%,
+      var(--bi-pink) 100%
+    );
+  }
+  
+  /* Text Gradients */
+  .text-gradient-rainbow {
+    background: linear-gradient(
+      90deg,
+      var(--pride-red) 0%,
+      var(--pride-orange) 17%,
+      var(--pride-yellow) 33%,
+      var(--pride-green) 50%,
+      var(--pride-blue) 67%,
+      var(--pride-purple) 83%,
+      var(--pride-red) 100%
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  
+  .text-gradient-terracotta {
+    background: linear-gradient(135deg, var(--terracotta) 0%, var(--warm-gold) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  
+  /* Premium backgrounds */
+  .bg-premium-light {
+    background: 
+      radial-gradient(ellipse at 0% 0%, rgba(196, 93, 62, 0.08) 0%, transparent 50%),
+      radial-gradient(ellipse at 100% 100%, rgba(212, 168, 83, 0.06) 0%, transparent 50%),
+      #faf8f5;
+  }
+  
+  .bg-premium-dark {
+    background: 
+      radial-gradient(ellipse at 0% 0%, rgba(212, 113, 90, 0.1) 0%, transparent 50%),
+      radial-gradient(ellipse at 100% 100%, rgba(230, 184, 92, 0.08) 0%, transparent 50%),
+      #1a1816;
+  }
+  
+  /* Warm ambient gradient animation */
+  .animated-warm-gradient {
+    background: linear-gradient(-45deg, 
+      rgba(196, 93, 62, 0.1), 
+      rgba(212, 168, 83, 0.08), 
+      rgba(122, 158, 126, 0.06), 
+      rgba(196, 93, 62, 0.1)
+    );
+    background-size: 400% 400%;
+    animation: warmGradientShift 20s ease infinite;
+  }
+  
+  @keyframes warmGradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+  
+  /* Hero gradient - very subtle, slow animation */
+  .hero-gradient-animated {
+    background: linear-gradient(135deg, 
+      #FAF7F2 0%,
+      #F8F4ED 25%,
+      #FAF7F2 50%,
+      #F5F0EA 75%,
+      #FAF7F2 100%
+    );
+    background-size: 400% 400%;
+    animation: heroGradientShift 30s ease infinite;
+  }
+  
+  .dark .hero-gradient-animated {
+    background: linear-gradient(135deg, 
+      #1a1816 0%,
+      #1f1c1a 25%,
+      #1a1816 50%,
+      #171513 75%,
+      #1a1816 100%
+    );
+    background-size: 400% 400%;
+  }
+  
+  @keyframes heroGradientShift {
+    0%, 100% { background-position: 0% 50%; }
+    25% { background-position: 50% 0%; }
+    50% { background-position: 100% 50%; }
+    75% { background-position: 50% 100%; }
+  }
+  
+  /* Glow effects */
+  .glow-terracotta {
+    box-shadow: 0 0 40px rgba(196, 93, 62, 0.3);
+  }
+  
+  .glow-gold {
+    box-shadow: 0 0 40px rgba(212, 168, 83, 0.3);
+  }
+  
+  .glow-rainbow {
+    box-shadow: 
+      0 0 20px rgba(229, 57, 53, 0.3),
+      0 0 40px rgba(255, 152, 0, 0.2),
+      0 0 60px rgba(253, 216, 53, 0.15);
+  }
+  
+  /* Card effects - Optimized to prevent flickering */
+  .card-hover {
+    /* GPU acceleration for smooth animations */
+    will-change: transform, box-shadow;
+    backface-visibility: hidden;
+    transform: translateZ(0);
+    /* Specific transitions only - NOT "all" */
+    transition: 
+      transform 0.3s cubic-bezier(0.2, 0, 0, 1),
+      box-shadow 0.3s ease;
+  }
+  
+  .card-hover:hover {
+    transform: translateY(-4px) translateZ(0);
+    box-shadow: 
+      0 20px 40px -12px rgba(0, 0, 0, 0.15),
+      0 0 0 1px rgba(196, 93, 62, 0.1);
+  }
+  
+  /* Card child hover effects - triggered by parent */
+  .card-hover:hover .hover-opacity {
+    opacity: 0.05;
+  }
+  
+  .card-hover:hover .icon-hover {
+    transform: scale(1.08);
+    box-shadow: 0 10px 30px -8px rgba(0, 0, 0, 0.3);
+  }
+  
+  .icon-hover {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    will-change: transform;
+    backface-visibility: hidden;
+  }
+  
+  .card-premium {
+    background: var(--card);
+    border: 1px solid var(--border);
+    box-shadow: 
+      0 1px 3px rgba(0, 0, 0, 0.04),
+      0 6px 16px rgba(0, 0, 0, 0.04);
+  }
+  
+  .card-glass {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(0, 0, 0, 0.06);
+  }
+  
+  .dark .card-glass {
+    background: rgba(37, 34, 32, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+  }
+  
+  /* Button styles */
+  .btn-primary {
+    background: linear-gradient(135deg, var(--terracotta) 0%, #a84d35 100%);
+    box-shadow: 0 4px 14px rgba(196, 93, 62, 0.35);
+    transition: all 0.3s ease;
+  }
+  
+  .btn-primary:hover {
+    box-shadow: 0 6px 20px rgba(196, 93, 62, 0.45);
+    transform: translateY(-2px);
+  }
+  
+  .btn-lgbtq {
+    background: linear-gradient(
+      90deg,
+      var(--pride-red) 0%,
+      var(--pride-orange) 20%,
+      var(--pride-yellow) 40%,
+      var(--pride-green) 60%,
+      var(--pride-blue) 80%,
+      var(--pride-purple) 100%
+    );
+    box-shadow: 0 4px 20px rgba(142, 36, 170, 0.35);
+    transition: all 0.3s ease;
+  }
+  
+  .btn-lgbtq:hover {
+    box-shadow: 
+      0 6px 30px rgba(142, 36, 170, 0.45),
+      0 0 40px rgba(142, 36, 170, 0.2);
+    transform: translateY(-2px);
+  }
+  
+  /* Link underline animation */
+  .link-underline {
+    position: relative;
+  }
+  
+  .link-underline::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--primary);
+    transition: width 0.3s ease;
+  }
+  
+  .link-underline:hover::after {
+    width: 100%;
+  }
+  
+  /* Stats giant number */
+  .stats-giant {
+    font-size: clamp(4rem, 12vw, 8rem);
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: -0.05em;
+  }
+  
+  /* Scroll indicator */
+  .scroll-indicator {
+    animation: scrollBounce 2s ease-in-out infinite;
+  }
+  
+  @keyframes scrollBounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(8px); }
+  }
+  
+  /* Pulse animation */
+  .pulse-gentle {
+    animation: pulseGentle 3s ease-in-out infinite;
+  }
+  
+  @keyframes pulseGentle {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.7; }
+  }
+  
+  /* Float animation */
+  .float {
+    animation: float 4s ease-in-out infinite;
+  }
+  
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-12px); }
+  }
+  
+  /* Shimmer effect */
+  .shimmer {
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba(255, 255, 255, 0.4) 50%,
+      transparent 100%
+    );
+    background-size: 200% 100%;
+    animation: shimmer 2s infinite;
+  }
+  
+  @keyframes shimmer {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+  }
+  
+  /* Safe area padding for mobile */
+  .safe-bottom {
+    padding-bottom: env(safe-area-inset-bottom, 0);
+  }
+  
+  .safe-top {
+    padding-top: env(safe-area-inset-top, 0);
+  }
+  
+  /* Font display utility */
+  .font-display {
+    font-weight: 600;
+    letter-spacing: -0.03em;
+  }
+  
+  /* Mode card backgrounds */
+  .mode-breakup {
+    background: linear-gradient(135deg, rgba(142, 36, 170, 0.08) 0%, rgba(142, 36, 170, 0.03) 100%);
+  }
+  
+  .mode-traveler {
+    background: linear-gradient(135deg, rgba(255, 152, 0, 0.08) 0%, rgba(255, 152, 0, 0.03) 100%);
+  }
+  
+  .mode-university {
+    background: linear-gradient(135deg, rgba(67, 160, 71, 0.08) 0%, rgba(67, 160, 71, 0.03) 100%);
+  }
+  
+  /* Parallax layers */
+  .parallax-slow {
+    will-change: transform;
+  }
+  
+  .parallax-fast {
+    will-change: transform;
+  }
+
+  /* Testimonial background pattern */
+  .pattern-bg {
+    background-image: radial-gradient(var(--border) 1px, transparent 1px);
+    background-size: 24px 24px;
+  }
+}
+
+/* Custom scrollbar styling */
+@layer base {
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  
+  .custom-scrollbar::-webkit-scrollbar-track {
+    background: var(--muted);
+  }
+  
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    background: var(--primary);
+    border-radius: 4px;
+  }
+  
+  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: var(--terracotta);
+  }
+}
+
+/* Selection styling */
+::selection {
+  background: rgba(196, 93, 62, 0.2);
+  color: var(--foreground);
+}
+
+/* Focus styles */
+:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+/* REMOVED: Global * transition - causes conflicts with hover effects */
+
+/* Global body scrollbar */
+body::-webkit-scrollbar {
+  width: 10px;
+}
+
+body::-webkit-scrollbar-track {
+  background: var(--background);
+}
+
+body::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 5px;
+}
+
+body::-webkit-scrollbar-thumb:hover {
+  background: var(--muted-foreground);
+}
+
+/* LGBTQ+ Theme Specific Styles */
+[data-theme="lgbtq"] .btn-primary {
+  background: linear-gradient(90deg,
+    var(--pride-red) 0%,
+    var(--pride-orange) 20%,
+    var(--pride-yellow) 40%,
+    var(--pride-green) 60%,
+    var(--pride-blue) 80%,
+    var(--pride-purple) 100%
+  );
+  background-size: 200% 100%;
+  animation: rainbowShift 4s linear infinite;
+}
+
+[data-theme="lgbtq"] .text-gradient-theme {
+  background: linear-gradient(
+    90deg,
+    var(--pride-red) 0%,
+    var(--pride-orange) 17%,
+    var(--pride-yellow) 33%,
+    var(--pride-green) 50%,
+    var(--pride-blue) 67%,
+    var(--pride-purple) 83%,
+    var(--pride-red) 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+[data-theme="lgbtq"] .card-hover:hover {
+  box-shadow: 
+    0 25px 50px -12px rgba(0, 0, 0, 0.15),
+    0 0 30px rgba(142, 36, 170, 0.15);
+}
+
+/* Neutral Theme Text Gradient */
+.text-gradient-theme {
+  background: linear-gradient(135deg, var(--terracotta) 0%, var(--warm-gold) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* ========================================
+   THEME SYSTEM - Neutral + LGBTQ+
+   ======================================== */
+
+/* Theme Transition Base - Apply ONLY to theme-aware elements */
+.theme-transition {
+  transition: 
+    background-color 0.3s ease,
+    border-color 0.3s ease,
+    color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+/* REMOVED: :root * global transition - causes hover flickering */
+
+/* ========================================
+   NEUTRAL THEME (Default)
+   ======================================== */
+.theme-neutral {
+  --accent-gradient: linear-gradient(135deg, var(--terracotta) 0%, var(--warm-gold) 100%);
+  --button-shadow: 0 4px 14px rgba(196, 93, 62, 0.35);
+  --button-shadow-hover: 0 6px 20px rgba(196, 93, 62, 0.45);
+}
+
+.theme-neutral .btn-primary,
+.theme-neutral .btn-premium {
+  background: linear-gradient(135deg, var(--terracotta) 0%, #a84d35 100%);
+  box-shadow: 0 4px 14px rgba(196, 93, 62, 0.35);
+}
+
+.theme-neutral .btn-primary:hover,
+.theme-neutral .btn-premium:hover {
+  box-shadow: 0 6px 20px rgba(196, 93, 62, 0.45);
+  transform: translateY(-2px);
+}
+
+.theme-neutral .text-gradient-theme {
+  background: linear-gradient(135deg, var(--terracotta) 0%, var(--warm-gold) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.theme-neutral .gradient-terracotta {
+  background: linear-gradient(135deg, var(--terracotta) 0%, #a84d35 100%);
+}
+
+.theme-neutral .card-hover:hover {
+  box-shadow: 
+    0 25px 50px -12px rgba(0, 0, 0, 0.15),
+    0 0 0 1px rgba(196, 93, 62, 0.1);
+}
+
+/* ========================================
+   LGBTQ+ THEME
+   ======================================== */
+.theme-lgbtq {
+  --accent-gradient: linear-gradient(
+    90deg,
+    var(--pride-red) 0%,
+    var(--pride-orange) 17%,
+    var(--pride-yellow) 33%,
+    var(--pride-green) 50%,
+    var(--pride-blue) 67%,
+    var(--pride-purple) 83%,
+    var(--pride-red) 100%
+  );
+  --button-shadow: 0 4px 20px rgba(142, 36, 170, 0.35);
+  --button-shadow-hover: 0 6px 30px rgba(142, 36, 170, 0.45);
+}
+
+/* Rainbow animated buttons */
+.theme-lgbtq .btn-primary,
+.theme-lgbtq .btn-premium {
+  background: linear-gradient(
+    90deg,
+    var(--pride-red) 0%,
+    var(--pride-orange) 17%,
+    var(--pride-yellow) 33%,
+    var(--pride-green) 50%,
+    var(--pride-blue) 67%,
+    var(--pride-purple) 83%,
+    var(--pride-red) 100%
+  );
+  background-size: 200% 100%;
+  animation: rainbowShift 4s linear infinite;
+  box-shadow: 0 4px 20px rgba(142, 36, 170, 0.35);
+}
+
+.theme-lgbtq .btn-primary:hover,
+.theme-lgbtq .btn-premium:hover {
+  box-shadow: 
+    0 6px 30px rgba(142, 36, 170, 0.45),
+    0 0 40px rgba(142, 36, 170, 0.2);
+  transform: translateY(-2px);
+}
+
+/* Rainbow text gradients */
+.theme-lgbtq .text-gradient-theme {
+  background: linear-gradient(
+    90deg,
+    var(--pride-red) 0%,
+    var(--pride-orange) 17%,
+    var(--pride-yellow) 33%,
+    var(--pride-green) 50%,
+    var(--pride-blue) 67%,
+    var(--pride-purple) 83%,
+    var(--pride-red) 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 200% 100%;
+  animation: rainbowShift 4s linear infinite;
+}
+
+/* Rainbow card hover effects */
+.theme-lgbtq .card-hover:hover {
+  box-shadow: 
+    0 25px 50px -12px rgba(0, 0, 0, 0.15),
+    0 0 30px rgba(142, 36, 170, 0.15);
+}
+
+/* Rainbow border glow */
+.theme-lgbtq .card-premium {
+  border-color: rgba(142, 36, 170, 0.2);
+}
+
+.theme-lgbtq .card-premium:hover {
+  border-color: rgba(142, 36, 170, 0.4);
+}
+
+/* Feature icon hover - rainbow stroke */
+.theme-lgbtq .feature-icon-hover:hover svg {
+  stroke: url(#rainbow-stroke);
+}
+
+/* Rainbow gradient for icons on hover */
+.theme-lgbtq .group:hover .icon-accent {
+  animation: rainbowStroke 2s linear infinite;
+}
+
+/* Rainbow animated gradient class */
+.gradient-rainbow-animated {
+  background: linear-gradient(
+    90deg,
+    var(--pride-red) 0%,
+    var(--pride-orange) 17%,
+    var(--pride-yellow) 33%,
+    var(--pride-green) 50%,
+    var(--pride-blue) 67%,
+    var(--pride-purple) 83%,
+    var(--pride-red) 100%
+  );
+  background-size: 200% 100%;
+  animation: rainbowShift 4s linear infinite;
+}
+
+/* Rainbow keyframes */
+@keyframes rainbowShift {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 200% 50%; }
+}
+
+@keyframes rainbowStroke {
+  0% { stroke: var(--pride-red); }
+  17% { stroke: var(--pride-orange); }
+  33% { stroke: var(--pride-yellow); }
+  50% { stroke: var(--pride-green); }
+  67% { stroke: var(--pride-blue); }
+  83% { stroke: var(--pride-purple); }
+  100% { stroke: var(--pride-red); }
+}
+
+/* ========================================
+   THEME-AWARE COMPONENT STYLES
+   ======================================== */
+
+/* Theme Toggle Button */
+.theme-toggle-btn {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.theme-toggle-btn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.theme-lgbtq .theme-toggle-btn::before {
+  background: linear-gradient(
+    90deg,
+    var(--pride-red) 0%,
+    var(--pride-orange) 20%,
+    var(--pride-yellow) 40%,
+    var(--pride-green) 60%,
+    var(--pride-blue) 80%,
+    var(--pride-purple) 100%
+  );
+  opacity: 1;
+  animation: rainbowShift 4s linear infinite;
+  background-size: 200% 100%;
+}
+
+/* Profile Card Rainbow Border */
+.theme-lgbtq .profile-card {
+  position: relative;
+}
+
+.theme-lgbtq .profile-card::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  background: linear-gradient(
+    90deg,
+    var(--pride-red) 0%,
+    var(--pride-orange) 17%,
+    var(--pride-yellow) 33%,
+    var(--pride-green) 50%,
+    var(--pride-blue) 67%,
+    var(--pride-purple) 83%,
+    var(--pride-red) 100%
+  );
+  background-size: 200% 100%;
+  animation: rainbowShift 4s linear infinite;
+  border-radius: inherit;
+  z-index: -1;
+}
+
+/* Badge Styles - Theme Aware */
+.theme-lgbtq .badge-accent {
+  background: linear-gradient(
+    90deg,
+    var(--pride-red) 0%,
+    var(--pride-orange) 20%,
+    var(--pride-yellow) 40%,
+    var(--pride-green) 60%,
+    var(--pride-blue) 80%,
+    var(--pride-purple) 100%
+  );
+  background-size: 200% 100%;
+  animation: rainbowShift 4s linear infinite;
+  color: white;
+}
+
+/* Link Underline Animation - Theme Aware */
+.theme-lgbtq .link-underline::after {
+  background: linear-gradient(
+    90deg,
+    var(--pride-red) 0%,
+    var(--pride-orange) 20%,
+    var(--pride-yellow) 40%,
+    var(--pride-green) 60%,
+    var(--pride-blue) 80%,
+    var(--pride-purple) 100%
+  );
+}
+
+/* Focus Ring - Theme Aware */
+.theme-lgbtq :focus-visible {
+  outline: 2px solid var(--pride-purple);
+  outline-offset: 2px;
+}
+
+/* Selection - Theme Aware */
+.theme-lgbtq ::selection {
+  background: rgba(142, 36, 170, 0.3);
+  color: var(--foreground);
+}
+
+/* ========================================
+   RESPONSIVE THEME ADJUSTMENTS
+   ======================================== */
+
+/* Mobile - Slightly faster animation for better battery */
+@media (max-width: 768px) {
+  .theme-lgbtq .btn-primary,
+  .theme-lgbtq .btn-premium,
+  .gradient-rainbow-animated {
+    animation-duration: 6s;
+  }
+}
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  .theme-lgbtq .btn-primary,
+  .theme-lgbtq .btn-premium,
+  .theme-lgbtq .text-gradient-theme,
+  .gradient-rainbow-animated {
+    animation: none;
+    background-size: 100% 100%;
+  }
+  
+  .theme-transition,
+  .card-hover,
+  .icon-hover {
+    transition-duration: 0s !important;
+    transition: none !important;
+  }
+  
+  .card-hover:hover {
+    transform: none;
+  }
+  
+  .card-hover:hover .icon-hover {
+    transform: none;
+  }
+}
+
+/* ========================================
+   COMPREHENSIVE RESPONSIVE DESIGN SYSTEM
+   Mobile-First Approach
+   ======================================== */
+
+/* Base Mobile Styles (≤480px) */
+.container-responsive {
+  width: 100%;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+/* Typography - Mobile Base */
+.heading-hero {
+  font-size: 2rem;
+  line-height: 1.15;
+  letter-spacing: -0.03em;
+}
+
+.heading-section {
+  font-size: 1.75rem;
+  line-height: 1.2;
+  letter-spacing: -0.025em;
+}
+
+.heading-card {
+  font-size: 1.125rem;
+  line-height: 1.3;
+}
+
+.body-text {
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.text-small {
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
+/* Stats Number - Mobile */
+.stats-number {
+  font-size: 3rem;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.04em;
+}
+
+/* Section Spacing - Mobile */
+.section-padding {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+/* Grid Layouts - Mobile (Single Column) */
+.grid-stats {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+.grid-features {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+}
+
+.grid-modes {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+}
+
+.grid-testimonials {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+.grid-footer {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+}
+
+/* Safety Grid - Mobile (2x2) */
+.grid-safety {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+/* Hero Layout - Mobile */
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+/* CTA Buttons - Mobile */
+.cta-buttons-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  width: 100%;
+}
+
+.cta-button-full {
+  width: 100%;
+  justify-content: center;
+}
+
+/* App Store Badges - Mobile */
+.store-badges {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.store-badge {
+  min-width: 140px;
+  height: auto;
+}
+
+/* Navigation - Mobile */
+.nav-mobile-compact {
+  gap: 0.5rem;
+}
+
+.nav-buttons-hide {
+  display: none;
+}
+
+/* Card Padding - Mobile */
+.card-padding-mobile {
+  padding: 1.25rem;
+}
+
+/* Touch Target Optimization */
+.touch-target {
+  min-height: 44px;
+  min-width: 44px;
+}
+
+/* Large Mobile (481px - 768px) */
+@media (min-width: 481px) {
+  .heading-hero {
+    font-size: 2.5rem;
+  }
+  
+  .heading-section {
+    font-size: 2rem;
+  }
+  
+  .stats-number {
+    font-size: 3.5rem;
+  }
+  
+  .section-padding {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
+  
+  .card-padding-mobile {
+    padding: 1.5rem;
+  }
+  
+  .grid-footer {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+  .store-badges {
+    flex-direction: row;
+    gap: 1rem;
+  }
+}
+
+/* Tablet (769px - 1024px) */
+@media (min-width: 769px) {
+  .container-responsive {
+    max-width: 90%;
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+  
+  .heading-hero {
+    font-size: 3rem;
+  }
+  
+  .heading-section {
+    font-size: 2.25rem;
+  }
+  
+  .stats-number {
+    font-size: 4.5rem;
+  }
+  
+  .section-padding {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+  }
+  
+  .grid-stats {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+  
+  .grid-features {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+  
+  .grid-modes {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+  
+  .grid-testimonials {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+  
+  .grid-safety {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+  
+  .grid-footer {
+    grid-template-columns: repeat(5, 1fr);
+    gap: 2rem;
+  }
+  
+  .hero-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+  }
+  
+  .cta-buttons-stack {
+    flex-direction: row;
+    width: auto;
+  }
+  
+  .cta-button-full {
+    width: auto;
+  }
+  
+  .nav-buttons-hide {
+    display: block;
+  }
+  
+  .card-padding-mobile {
+    padding: 1.75rem;
+  }
+}
+
+/* Desktop (1025px - 1440px) */
+@media (min-width: 1025px) {
+  .container-responsive {
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .heading-hero {
+    font-size: 3.5rem;
+  }
+  
+  .heading-section {
+    font-size: 2.5rem;
+  }
+  
+  .stats-number {
+    font-size: 5rem;
+  }
+  
+  .section-padding {
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+  }
+  
+  .grid-features {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+  
+  .grid-safety {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+  }
+  
+  .hero-grid {
+    gap: 4rem;
+  }
+  
+  .card-padding-mobile {
+    padding: 2rem;
+  }
+}
+
+/* Large Desktop (≥1441px) */
+@media (min-width: 1441px) {
+  .container-responsive {
+    max-width: 1400px;
+  }
+  
+  .heading-hero {
+    font-size: 4rem;
+  }
+  
+  .heading-section {
+    font-size: 3rem;
+  }
+  
+  .stats-number {
+    font-size: 6rem;
+  }
+  
+  .section-padding {
+    padding-top: 7rem;
+    padding-bottom: 7rem;
+  }
+}
+
+/* ========================================
+   TOUCH-SPECIFIC OPTIMIZATIONS
+   ======================================== */
+
+/* Only apply hover effects on devices that support hover */
+@media (hover: hover) and (pointer: fine) {
+  .card-hover:hover {
+    transform: translateY(-4px) translateZ(0);
+    box-shadow: 
+      0 20px 40px -12px rgba(0, 0, 0, 0.15),
+      0 0 0 1px rgba(196, 93, 62, 0.1);
+  }
+  
+  .card-hover:hover .icon-hover {
+    transform: scale(1.08);
+    box-shadow: 0 10px 30px -8px rgba(0, 0, 0, 0.3);
+  }
+  
+  .btn-primary:hover {
+    box-shadow: 0 6px 20px rgba(196, 93, 62, 0.45);
+    transform: translateY(-2px);
+  }
+}
+
+/* Touch devices - active states instead of hover */
+@media (hover: none) and (pointer: coarse) {
+  .card-hover:active {
+    transform: scale(0.98);
+    transition: transform 0.1s ease;
+  }
+  
+  .btn-primary:active {
+    transform: scale(0.98);
+  }
+  
+  /* Remove hover animations on touch */
+  .card-hover:hover {
+    transform: none;
+    box-shadow: 
+      0 1px 3px rgba(0, 0, 0, 0.04),
+      0 6px 16px rgba(0, 0, 0, 0.04);
+  }
+  
+  .btn-primary:hover {
+    transform: none;
+  }
+}
+
+/* ========================================
+   PREVENT HORIZONTAL SCROLL
+   ======================================== */
+
+html, body {
+  overflow-x: hidden;
+  max-width: 100vw;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+img, video, svg {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Prevent text overflow */
+p, h1, h2, h3, h4, h5, h6 {
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+}
+
+/* Fix long URLs and code */
+a, code {
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+/* ========================================
+   SAFE AREA INSETS (iPhone X+)
+   ======================================== */
+
+.safe-area-inset {
+  padding-left: max(1rem, env(safe-area-inset-left));
+  padding-right: max(1rem, env(safe-area-inset-right));
+  padding-bottom: max(1rem, env(safe-area-inset-bottom));
+}
+
+/* ========================================
+   MOBILE NAVIGATION SPECIAL STYLES
+   ======================================== */
+
+/* Header sticky on mobile */
+.header-sticky-mobile {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(250, 248, 245, 0.95);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.dark .header-sticky-mobile {
+  background: rgba(26, 24, 22, 0.95);
+}
+
+/* Theme toggle button - ensure touch target */
+.theme-toggle-mobile {
+  min-width: 44px;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ========================================
+   RESPONSIVE STATS SECTION
+   ======================================== */
+
+.stats-section-mobile {
+  padding: 2rem 1rem;
+}
+
+.stats-card-mobile {
+  text-align: center;
+  padding: 1.5rem 1rem;
+}
+
+.stats-label-mobile {
+  font-size: 0.9375rem;
+  line-height: 1.4;
+  margin-top: 0.75rem;
+}
+
+.stats-subtext-mobile {
+  font-size: 0.8125rem;
+  margin-top: 0.5rem;
+}
+
+.stats-source-mobile {
+  font-size: 0.75rem;
+  margin-top: 0.5rem;
+  opacity: 0.7;
+}
+
+/* ========================================
+   RESPONSIVE FEATURE CARDS
+   ======================================== */
+
+.feature-card-mobile {
+  padding: 1.25rem;
+  min-height: auto;
+}
+
+.feature-icon-mobile {
+  width: 3rem;
+  height: 3rem;
+  margin-bottom: 1rem;
+}
+
+.feature-title-mobile {
+  font-size: 1.125rem;
+  margin-bottom: 0.75rem;
+}
+
+.feature-description-mobile {
+  font-size: 0.9375rem;
+  line-height: 1.6;
+}
+
+/* ========================================
+   RESPONSIVE SAFETY SECTION
+   ======================================== */
+
+.safety-item-mobile {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.75rem;
+}
+
+.safety-icon-mobile {
+  width: 2.5rem;
+  height: 2.5rem;
+}
+
+.safety-title-mobile {
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.safety-description-mobile {
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
+@media (min-width: 769px) {
+  .safety-item-mobile {
+    align-items: center;
+    text-align: center;
+  }
+}
+
+/* ========================================
+   RESPONSIVE TESTIMONIALS
+   ======================================== */
+
+.testimonial-card-mobile {
+  padding: 1.25rem;
+}
+
+.testimonial-avatar-mobile {
+  width: 3rem;
+  height: 3rem;
+  font-size: 1rem;
+}
+
+.testimonial-name-mobile {
+  font-size: 1rem;
+}
+
+.testimonial-text-mobile {
+  font-size: 0.875rem;
+  line-height: 1.6;
+}
+
+.testimonial-badge-mobile {
+  font-size: 0.6875rem;
+  padding: 0.25rem 0.5rem;
+}
+
+/* ========================================
+   RESPONSIVE FINAL CTA
+   ======================================== */
+
+.cta-section-mobile {
+  padding: 2.5rem 1.5rem;
+}
+
+.cta-title-mobile {
+  font-size: 1.75rem;
+  margin-bottom: 1rem;
+}
+
+.cta-description-mobile {
+  font-size: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.cta-button-mobile {
+  width: 100%;
+  padding: 1rem 2rem;
+  font-size: 1rem;
+}
+
+@media (min-width: 769px) {
+  .cta-section-mobile {
+    padding: 4rem 3rem;
+  }
+  
+  .cta-title-mobile {
+    font-size: 2.25rem;
+  }
+  
+  .cta-description-mobile {
+    font-size: 1.125rem;
+  }
+  
+  .cta-button-mobile {
+    width: auto;
+  }
+}
+
+/* ========================================
+   RESPONSIVE FOOTER
+   ======================================== */
+
+.footer-mobile {
+  padding: 2rem 1rem;
+}
+
+.footer-brand-mobile {
+  margin-bottom: 1.5rem;
+}
+
+.footer-links-mobile {
+  margin-bottom: 1.5rem;
+}
+
+.footer-bottom-mobile {
+  flex-direction: column;
+  gap: 1rem;
+  text-align: center;
+}
+
+@media (min-width: 769px) {
+  .footer-mobile {
+    padding: 3rem 2rem;
+  }
+  
+  .footer-bottom-mobile {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
+/* ========================================
+   PRINT STYLES
+   ======================================== */
+
+@media print {
+  .no-print {
+    display: none !important;
+  }
+  
+  body {
+    background: white;
+    color: black;
+  }
+  
+  a {
+    text-decoration: underline;
+  }
+}

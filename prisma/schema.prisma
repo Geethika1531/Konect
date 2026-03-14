@@ -1,0 +1,369 @@
+// This is your Prisma schema file for Konect
+// Based on the Product Requirements Document (PRD)
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+// ============================================
+// User Model
+// ============================================
+
+model User {
+  id                String   @id @default(cuid())
+  phone             String?  @unique
+  email             String?  @unique
+  dateOfBirth       DateTime
+  intent            String   // 'friends', 'community', 'dating'
+  bio               String?
+  verified          Boolean  @default(false)
+  incognito         Boolean  @default(false)
+  disappearingMode  Boolean  @default(false)
+  meetupCount       Int      @default(0)
+  trustFlowerCount  Int      @default(0)
+  currentMood       String?  // 'need-to-talk', 'bored', etc.
+  themePreference   String   @default("neutral") // 'neutral' or 'lgbtq'
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+
+  // Relations
+  genders           UserGender[]
+  orientations      UserOrientation[]
+  pronouns          UserPronoun[]
+  interests         UserInterest[]
+  profile           Profile?
+  sentFlowers       TrustFlower[]  @relation("FlowerGiver")
+  receivedFlowers   TrustFlower[]  @relation("FlowerReceiver")
+  badges            UserBadge[]
+  memoryNotes       MemoryNote[]   @relation("MemoryNoteOwner")
+  memoryNotesAbout  MemoryNote[]   @relation("MemoryNoteSubject")
+  sentMeetups       Meetup[]       @relation("MeetupUser1")
+  receivedMeetups   Meetup[]       @relation("MeetupUser2")
+  createdEvents     MicroEvent[]   @relation("EventCreator")
+  eventAttendances  EventAttendee[]
+  circleMemberships CircleMembership[]
+  createdCircles    Circle[]       @relation("CircleCreator")
+  moodCards         MoodCard[]
+  sentReports       Report[]       @relation("ReportReporter")
+  receivedReports   Report[]       @relation("ReportReported")
+  subscription      Subscription?
+  conversations     ConversationParticipant[]
+  messages          Message[]
+}
+
+model UserGender {
+  id        String @id @default(cuid())
+  userId    String
+  gender    String // 'woman', 'man', 'non-binary', etc.
+  custom    String?
+
+  user      User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, gender])
+}
+
+model UserOrientation {
+  id           String @id @default(cuid())
+  userId       String
+  orientation  String // 'lesbian', 'gay', 'bisexual', etc.
+  custom       String?
+
+  user         User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, orientation])
+}
+
+model UserPronoun {
+  id        String @id @default(cuid())
+  userId    String
+  pronoun   String // 'she/her', 'he/him', 'they/them', etc.
+  custom    String?
+
+  user      User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, pronoun])
+}
+
+model UserInterest {
+  id        String @id @default(cuid())
+  userId    String
+  interest  String
+
+  user      User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, interest])
+}
+
+// ============================================
+// Profile Model
+// ============================================
+
+model Profile {
+  id              String @id @default(cuid())
+  userId          String @unique
+  voiceNoteUrl    String?
+  bio             String?
+  verifiedBadge   Boolean @default(false)
+
+  user            User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+  photos          ProfilePhoto[]
+}
+
+model ProfilePhoto {
+  id        String @id @default(cuid())
+  profileId String
+  url       String
+  order     Int    @default(0)
+
+  profile   Profile @relation(fields: [profileId], references: [id], onDelete: Cascade)
+}
+
+// ============================================
+// Trust Flowers & Badges
+// ============================================
+
+model TrustFlower {
+  id          String   @id @default(cuid())
+  giverId     String
+  receiverId  String
+  meetupId    String?
+  createdAt   DateTime @default(now())
+
+  giver       User     @relation("FlowerGiver", fields: [giverId], references: [id], onDelete: Cascade)
+  receiver    User     @relation("FlowerReceiver", fields: [receiverId], references: [id], onDelete: Cascade)
+  tags        TrustFlowerTag[]
+}
+
+model TrustFlowerTag {
+  id            String @id @default(cuid())
+  trustFlowerId String
+  tag           String // 'great-listener', 'fun-energy', etc.
+
+  trustFlower   TrustFlower @relation(fields: [trustFlowerId], references: [id], onDelete: Cascade)
+}
+
+model Badge {
+  id          String @id @default(cuid())
+  name        String
+  description String?
+  emoji       String
+
+  users       UserBadge[]
+}
+
+model UserBadge {
+  id        String   @id @default(cuid())
+  userId    String
+  badgeId   String
+  earnedAt  DateTime @default(now())
+
+  user      User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+  badge     Badge   @relation(fields: [badgeId], references: [id])
+
+  @@unique([userId, badgeId])
+}
+
+// ============================================
+// Memory Journal
+// ============================================
+
+model MemoryNote {
+  id          String   @id @default(cuid())
+  userId      String
+  aboutUserId String
+  note        String
+  createdAt   DateTime @default(now())
+
+  user        User    @relation("MemoryNoteOwner", fields: [userId], references: [id], onDelete: Cascade)
+  aboutUser   User    @relation("MemoryNoteSubject", fields: [aboutUserId], references: [id], onDelete: Cascade)
+}
+
+// ============================================
+// Meetups
+// ============================================
+
+model Meetup {
+  id            String   @id @default(cuid())
+  user1Id       String
+  user2Id       String
+  status        String   @default("scheduled") // 'scheduled', 'completed', 'cancelled'
+  location      String
+  locationLat   Float?
+  locationLng   Float?
+  scheduledAt   DateTime
+  verifiedAt    DateTime?
+  createdAt     DateTime @default(now())
+
+  user1         User     @relation("MeetupUser1", fields: [user1Id], references: [id], onDelete: Cascade)
+  user2         User     @relation("MeetupUser2", fields: [user2Id], references: [id], onDelete: Cascade)
+}
+
+// ============================================
+// Micro-Events
+// ============================================
+
+model MicroEvent {
+  id              String   @id @default(cuid())
+  creatorId       String
+  title           String
+  activityType    String   // 'coffee', 'food', 'gaming', etc.
+  description     String?
+  location        String
+  locationLat     Float?
+  locationLng     Float?
+  datetime        DateTime
+  maxParticipants Int      @default(6)
+  status          String   @default("open") // 'open', 'full', 'completed', 'cancelled'
+  createdAt       DateTime @default(now())
+
+  creator         User            @relation("EventCreator", fields: [creatorId], references: [id], onDelete: Cascade)
+  attendees       EventAttendee[]
+}
+
+model EventAttendee {
+  id        String   @id @default(cuid())
+  eventId   String
+  userId    String
+  status    String   @default("pending") // 'pending', 'approved', 'declined'
+  joinedAt  DateTime @default(now())
+
+  event     MicroEvent @relation(fields: [eventId], references: [id], onDelete: Cascade)
+  user      User       @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([eventId, userId])
+}
+
+// ============================================
+// Circles (Friend Groups)
+// ============================================
+
+model Circle {
+  id          String   @id @default(cuid())
+  name        String
+  coverImage  String?
+  createdById String
+  createdAt   DateTime @default(now())
+
+  createdBy   User              @relation("CircleCreator", fields: [createdById], references: [id], onDelete: Cascade)
+  members     CircleMembership[]
+}
+
+model CircleMembership {
+  id        String   @id @default(cuid())
+  circleId  String
+  userId    String
+  role      String   @default("member") // 'admin', 'member'
+  joinedAt  DateTime @default(now())
+
+  circle    Circle @relation(fields: [circleId], references: [id], onDelete: Cascade)
+  user      User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([circleId, userId])
+}
+
+// ============================================
+// Mood Cards
+// ============================================
+
+model MoodCard {
+  id          String   @id @default(cuid())
+  userId      String
+  photoUrl    String?
+  caption     String
+  mood        String
+  locationLat Float?
+  locationLng Float?
+  expiresAt   DateTime
+  createdAt   DateTime @default(now())
+
+  user        User @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+// ============================================
+// Conversations & Messages
+// ============================================
+
+model Conversation {
+  id        String   @id @default(cuid())
+  createdAt DateTime @default(now())
+
+  participants ConversationParticipant[]
+  messages     Message[]
+}
+
+model ConversationParticipant {
+  id             String  @id @default(cuid())
+  conversationId String
+  userId         String
+  voiceCount     Int     @default(0)
+  textUnlocked   Boolean @default(false)
+
+  conversation   Conversation @relation(fields: [conversationId], references: [id], onDelete: Cascade)
+  user           User         @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([conversationId, userId])
+}
+
+model Message {
+  id             String   @id @default(cuid())
+  conversationId String
+  senderId       String
+  type           String   // 'voice', 'text'
+  content        String?
+  audioUrl       String?
+  read           Boolean  @default(false)
+  createdAt      DateTime @default(now())
+
+  conversation   Conversation @relation(fields: [conversationId], references: [id], onDelete: Cascade)
+  sender         User         @relation(fields: [senderId], references: [id], onDelete: Cascade)
+}
+
+// ============================================
+// Reports
+// ============================================
+
+model Report {
+  id             String   @id @default(cuid())
+  reporterId     String
+  reportedUserId String
+  reason         String   // 'homophobic', 'harassment', etc.
+  details        String?
+  status         String   @default("pending") // 'pending', 'reviewing', 'resolved', 'dismissed'
+  resolvedAt     DateTime?
+  createdAt      DateTime @default(now())
+
+  reporter       User @relation("ReportReporter", fields: [reporterId], references: [id], onDelete: Cascade)
+  reportedUser   User @relation("ReportReported", fields: [reportedUserId], references: [id], onDelete: Cascade)
+}
+
+// ============================================
+// Subscription
+// ============================================
+
+model Subscription {
+  id        String   @id @default(cuid())
+  userId    String   @unique
+  tier      String   @default("free") // 'free', 'monthly', 'lifetime'
+  startDate DateTime @default(now())
+  endDate   DateTime?
+
+  user      User @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+// ============================================
+// Floating Plans
+// ============================================
+
+model FloatingPlan {
+  id          String   @id @default(cuid())
+  userId      String
+  activity    String
+  status      String   @default("open") // 'open', 'matched', 'completed', 'cancelled'
+  matchedWith String?
+  createdAt   DateTime @default(now())
+}
