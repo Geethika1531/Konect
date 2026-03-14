@@ -82,4 +82,4 @@ Konect is built with safety as a priority. Our interface includes prominent safe
 ---
 
 Made with 💜 for India's youth.
-© 2026 Konect
+© 2026 Konect, Founder : Sathwik Giddi
