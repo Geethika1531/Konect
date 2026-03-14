@@ -1,141 +1,85 @@
-# 🚀 Welcome to Z.ai Code Scaffold
+# 💜 Konect: Find Your People, Right Now
 
-A modern, production-ready web application scaffold powered by cutting-edge technologies, designed to accelerate your development with [Z.ai](https://chat.z.ai)'s AI-powered coding assistance.
+Konect is a modern social discovery platform designed for the vibrant youth of India (18-30). It moves beyond static profiles, focusing on real-time "Nearby Now" energy, local events, and safe, voice-first interactions.
 
-## ✨ Technology Stack
-
-This scaffold provides a robust foundation built with:
-
-### 🎯 Core Framework
-- **⚡ Next.js 16** - The React framework for production with App Router
-- **📘 TypeScript 5** - Type-safe JavaScript for better developer experience
-- **🎨 Tailwind CSS 4** - Utility-first CSS framework for rapid UI development
-
-### 🧩 UI Components & Styling
-- **🧩 shadcn/ui** - High-quality, accessible components built on Radix UI
-- **🎯 Lucide React** - Beautiful & consistent icon library
-- **🌈 Framer Motion** - Production-ready motion library for React
-- **🎨 Next Themes** - Perfect dark mode in 2 lines of code
-
-### 📋 Forms & Validation
-- **🎣 React Hook Form** - Performant forms with easy validation
-- **✅ Zod** - TypeScript-first schema validation
-
-### 🔄 State Management & Data Fetching
-- **🐻 Zustand** - Simple, scalable state management
-- **🔄 TanStack Query** - Powerful data synchronization for React
-- **🌐 Fetch** - Promise-based HTTP request
-
-### 🗄️ Database & Backend
-- **🗄️ Prisma** - Next-generation TypeScript ORM
-- **🔐 NextAuth.js** - Complete open-source authentication solution
-
-### 🎨 Advanced UI Features
-- **📊 TanStack Table** - Headless UI for building tables and datagrids
-- **🖱️ DND Kit** - Modern drag and drop toolkit for React
-- **📊 Recharts** - Redefined chart library built with React and D3
-- **🖼️ Sharp** - High performance image processing
-
-### 🌍 Internationalization & Utilities
-- **🌍 Next Intl** - Internationalization library for Next.js
-- **📅 Date-fns** - Modern JavaScript date utility library
-- **🪝 ReactUse** - Collection of essential React hooks for modern development
-
-## 🎯 Why This Scaffold?
-
-- **🏎️ Fast Development** - Pre-configured tooling and best practices
-- **🎨 Beautiful UI** - Complete shadcn/ui component library with advanced interactions
-- **🔒 Type Safety** - Full TypeScript configuration with Zod validation
-- **📱 Responsive** - Mobile-first design principles with smooth animations
-- **🗄️ Database Ready** - Prisma ORM configured for rapid backend development
-- **🔐 Auth Included** - NextAuth.js for secure authentication flows
-- **📊 Data Visualization** - Charts, tables, and drag-and-drop functionality
-- **🌍 i18n Ready** - Multi-language support with Next Intl
-- **🚀 Production Ready** - Optimized build and deployment settings
-- **🤖 AI-Friendly** - Structured codebase perfect for AI assistance
-
-## 🚀 Quick Start
-
-```bash
-# Install dependencies
-bun install
-
-# Start development server
-bun run dev
-
-# Build for production
-bun run build
-
-# Start production server
-bun start
-```
-
-Open [http://localhost:3000](http://localhost:3000) to see your application running.
-
-## 🤖 Powered by Z.ai
-
-This scaffold is optimized for use with [Z.ai](https://chat.z.ai) - your AI assistant for:
-
-- **💻 Code Generation** - Generate components, pages, and features instantly
-- **🎨 UI Development** - Create beautiful interfaces with AI assistance  
-- **🔧 Bug Fixing** - Identify and resolve issues with intelligent suggestions
-- **📝 Documentation** - Auto-generate comprehensive documentation
-- **🚀 Optimization** - Performance improvements and best practices
-
-Ready to build something amazing? Start chatting with Z.ai at [chat.z.ai](https://chat.z.ai) and experience the future of AI-powered development!
-
-## 📁 Project Structure
-
-```
-src/
-├── app/                 # Next.js App Router pages
-├── components/          # Reusable React components
-│   └── ui/             # shadcn/ui components
-├── hooks/              # Custom React hooks
-└── lib/                # Utility functions and configurations
-```
-
-## 🎨 Available Features & Components
-
-This scaffold includes a comprehensive set of modern web development tools:
-
-### 🧩 UI Components (shadcn/ui)
-- **Layout**: Card, Separator, Aspect Ratio, Resizable Panels
-- **Forms**: Input, Textarea, Select, Checkbox, Radio Group, Switch
-- **Feedback**: Alert, Toast (Sonner), Progress, Skeleton
-- **Navigation**: Breadcrumb, Menubar, Navigation Menu, Pagination
-- **Overlay**: Dialog, Sheet, Popover, Tooltip, Hover Card
-- **Data Display**: Badge, Avatar, Calendar
-
-### 📊 Advanced Data Features
-- **Tables**: Powerful data tables with sorting, filtering, pagination (TanStack Table)
-- **Charts**: Beautiful visualizations with Recharts
-- **Forms**: Type-safe forms with React Hook Form + Zod validation
-
-### 🎨 Interactive Features
-- **Animations**: Smooth micro-interactions with Framer Motion
-- **Drag & Drop**: Modern drag-and-drop functionality with DND Kit
-- **Theme Switching**: Built-in dark/light mode support
-
-### 🔐 Backend Integration
-- **Authentication**: Ready-to-use auth flows with NextAuth.js
-- **Database**: Type-safe database operations with Prisma
-- **API Client**: HTTP requests with Fetch + TanStack Query
-- **State Management**: Simple and scalable with Zustand
-
-### 🌍 Production Features
-- **Internationalization**: Multi-language support with Next Intl
-- **Image Optimization**: Automatic image processing with Sharp
-- **Type Safety**: End-to-end TypeScript with Zod validation
-- **Essential Hooks**: 100+ useful React hooks with ReactUse for common patterns
-
-## 🤝 Get Started with Z.ai
-
-1. **Clone this scaffold** to jumpstart your project
-2. **Visit [chat.z.ai](https://chat.z.ai)** to access your AI coding assistant
-3. **Start building** with intelligent code generation and assistance
-4. **Deploy with confidence** using the production-ready setup
+Built with a mobile-first philosophy, Konect helps you find your circles in cities like Bengaluru, whether you're looking for a study buddy, a biriyani partner, or a coworking friend.
 
 ---
 
-Built with ❤️ for the developer community. Supercharged by [Z.ai](https://chat.z.ai) 🚀
+## ✨ Core Features
+
+### 🗺️ Nearby Now (Discover Feed)
+A real-time hub showing who’s active in your vicinity (e.g., Indiranagar, Koramangala, HSR Layout). See what people are doing *right now*—from getting coffee to playing basketball.
+
+### 👩🏽‍🎤 Rich Identity Profiles
+Detailed persona mockups tailored to the Indian context. 
+- **Diverse Personas**: UI Designers, MTech students, Artists, Gamers, and more.
+- **Vibe Filtering**: Filter by energy (Need to Talk, Bored, Adventurous, Creative).
+- **Reputation Badges**: Trust signals like "Great Listener," "Top Player," and "Verified."
+
+### 🎙️ Safe Voice-First Chat
+Break the ice with real voices. Our "Say Hi" system requires two voice notes before unlocking text chat, ensuring more authentic and human connections from the start.
+
+### 🌈 Luminous Pride Mode
+A premium, high-contrast inclusive theme called **"Midnight Prism."** 
+- **Community-Specific Feeds**: Toggling the Pride theme instantly switches you to a dedicated feed of LGBTQ+ personas.
+- **Premium Aesthetic**: Ambient aurora glows, glassmorphism, and a luminous Indigo palette designed for perfect legibility and a welcoming vibe.
+
+### 🏏 Indian Events Hub
+A curated section for micro-events near you:
+- Chai & Conversations @ Church Street
+- Gully Cricket @ Cubbon Park
+- Biriyani Nights & Sunset Treks
+
+---
+
+## ⚡ Technology Stack
+
+- **Framework**: [Next.js 16 (Turbopack)](https://nextjs.org/) - App Router, Server Components.
+- **Styling**: [Tailwind CSS 4](https://tailwindcss.com/) - Utility-first design system.
+- **UI Components**: [shadcn/ui](https://ui.shadcn.com/) - Radix UI primitives.
+- **Animations**: [Framer Motion](https://www.framer.com/motion/) - Smooth, high-end micro-interactions.
+- **State Management**: [Zustand](https://github.com/pmndrs/zustand) - Global theme and mood handling.
+- **Icons**: [Lucide React](https://lucide.dev/) - Modern icon set.
+- **Database**: [Supabase](https://supabase.com/) & [Firebase](https://firebase.google.com/) integration.
+
+---
+
+## 🚀 Getting Started
+
+```bash
+# Install dependencies
+npm install
+
+# Start development server
+npm run dev
+
+# Build for production
+npm run build
+```
+
+Open [http://localhost:3000](http://localhost:3000) to see the app in action.
+
+---
+
+## 📁 Structure
+
+```
+src/
+├── app/                 # Next.js App Router (Discover, Profiles, Events)
+├── components/          # Interactive UI & Global Layouts
+├── lib/                 # Theme context, Supabase & Firebase clients
+├── store/               # Zustand global state (Theme, Mood, Meetups)
+└── types/               # TypeScript definitions
+```
+
+---
+
+## 🛡️ Safety First
+
+Konect is built with safety as a priority. Our interface includes prominent safety tips, reporting tools, and 24/7 support links to ensure every meetup is a positive one.
+
+---
+
+Made with 💜 for India's youth.
+© 2026 Konect
